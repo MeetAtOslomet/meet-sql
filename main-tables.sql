@@ -8,7 +8,7 @@ CREATE TABLE User (
   	gender int,
 	age int(3) NOT NULL,
 	hide_age boolean,
-	password varchar(255) NOT NULL,
+	/*password varchar(255) NOT NULL,*/
 	id_campus int NOT NULL,
 	biography varchar(255) NOT NULL,
 	
