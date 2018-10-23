@@ -1,11 +1,11 @@
-USE Meet
+USE meet
 
-CREATE TABLE User(
-	id_user int(11) Auto_increment NOT NULL ,
-  last_name varchar(50),
-  first_name varchar(50) NOT NULL,
-  type int NOT NULL,
-  gender int,
+CREATE TABLE User (
+	id_user int(11) Auto_increment NOT NULL,
+  	last_name varchar(50),
+  	first_name varchar(50) NOT NULL,
+  	type int NOT NULL,
+  	gender int,
 	age int(3) NOT NULL,
 	hide_age boolean,
 	password varchar(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE User(
 	biography varchar(255) NOT NULL,
 	
 	PRIMARY KEY (id_user)
-	);
+);
 	
 CREATE TABLE Campus(
 	id_campus int(11) Auto_increment NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE Tandem(
 	PRIMARY KEY (id_tandem)
 	);
 		
-CREATE TABLE SendMessage(
+CREATE TABLE sendMessage(
 	id_message int(11) Auto_increment NOT NULL,
 	id_userSend int NOT NULL,
 	id_userReceive int NOT NULL,
@@ -100,19 +100,19 @@ CREATE TABLE meetingRequest(
 	meetingMessage varchar(255),
 	requestState boolean,
 	
-	PRIMARY KEY (id_userReceive,id_userSend)
+	PRIMARY KEY (id_userReceive, id_userSend)
 	);
 	
-CREATE TABLE ActivationKey(
+/*CREATE TABLE ActivationKey(
 	id_activationKey int(11) Auto_increment NOT NULL,
 	id_user int NOT NULL,
 	keyNumber int NOT NULL,
 	
 	PRIMARY KEY (id_activationKey)
-	);
+	);*/
 	
 
-ALTER TABLE ActivationKey ADD CONSTRAINT FK_id_user FOREIGN KEY (id_user) REFERENCES User(id_user);
+/*ALTER TABLE ActivationKey ADD CONSTRAINT FK_id_user FOREIGN KEY (id_user) REFERENCES User(id_user);*/
 ALTER TABLE sendMessage ADD CONSTRAINT FK_id_tandem FOREIGN KEY (id_tandem) REFERENCES Tandem(id_tandem);
 ALTER TABLE sendMessage ADD CONSTRAINT FK_id_userSend FOREIGN KEY (id_userSend) REFERENCES User(id_user);
 ALTER TABLE meetingRequest ADD CONSTRAINT FK_id_userSend2 FOREIGN KEY (id_userSend) REFERENCES User(id_user);
