@@ -2,6 +2,7 @@ USE meet
 
 CREATE TABLE User (
 	id_user int(11) Auto_increment NOT NULL,
+	username varchar(50) NOT NULL UNIQUE,
   	last_name varchar(50),
   	first_name varchar(50) NOT NULL,
   	type int NOT NULL,
@@ -44,7 +45,7 @@ CREATE TABLE Hobbies(
 	PRIMARY KEY (id_hobbies)
 	);
 	
-CREATE TABLE addHobies(
+CREATE TABLE addHobbies(
 	id_user int NOT NULL,
 	id_hobbies int NOt NULL,
 	
@@ -118,8 +119,8 @@ ALTER TABLE sendMessage ADD CONSTRAINT FK_id_userSend FOREIGN KEY (id_userSend) 
 ALTER TABLE meetingRequest ADD CONSTRAINT FK_id_userSend2 FOREIGN KEY (id_userSend) REFERENCES User(id_user);
 ALTER TABLE addLanguage ADD CONSTRAINT FK_id_user2 FOREIGN KEY (id_user) REFERENCES User(id_user);	
 ALTER TABLE addLanguage ADD CONSTRAINT FK_id_language FOREIGN KEY (id_language) REFERENCES Language(id_language);
-ALTER TABLE addHobies ADD CONSTRAINT FK_id_user3 FOREIGN KEY (id_user) REFERENCES User(id_user);
-ALTER TABLE addHobies ADD CONSTRAINT FK_id_hobbies FOREIGN KEY (id_hobbies) REFERENCES Hobbies(id_hobbies);
+ALTER TABLE addHobbies ADD CONSTRAINT FK_id_user3 FOREIGN KEY (id_user) REFERENCES User(id_user);
+ALTER TABLE addHobbies ADD CONSTRAINT FK_id_hobbies FOREIGN KEY (id_hobbies) REFERENCES Hobbies(id_hobbies);
 ALTER TABLE matchRequest ADD CONSTRAINT FK_id_userSend3 FOREIGN KEY (id_userSend) REFERENCES User(id_user);
 
 
